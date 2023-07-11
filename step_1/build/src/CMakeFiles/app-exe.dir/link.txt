@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/app-exe.dir/app.cpp.o" -o app-exe  libapp-lib.a /home/zeyen/oatpp/lib/oatpp-1.3.0/liboatpp.a -lpthread -latomic 

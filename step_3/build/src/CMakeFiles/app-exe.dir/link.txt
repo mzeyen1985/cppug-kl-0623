@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG "CMakeFiles/app-exe.dir/app.cpp.o" -o app-exe  libapp-lib.a /home/zeyen/oatpp/lib/oatpp-1.3.0/liboatpp-swagger.a /home/zeyen/oatpp/lib/oatpp-1.3.0/liboatpp-sqlite.a /home/zeyen/oatpp/lib/oatpp-1.3.0/liboatpp-test.a /home/zeyen/oatpp/lib/oatpp-1.3.0/liboatpp.a -latomic /home/zeyen/oatpp/lib/oatpp-1.3.0/libsqlite.a -lpthread -ldl 

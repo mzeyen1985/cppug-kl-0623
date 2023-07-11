@@ -1,0 +1,2 @@
+/home/zeyen/project/cppug-kl-0623/step_1/install/bin/app-exe
+/home/zeyen/project/cppug-kl-0623/step_1/install/bin/site/index.html

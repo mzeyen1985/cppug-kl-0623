@@ -1,0 +1,2 @@
+/usr/bin/ar qc libapp-lib.a "CMakeFiles/app-lib.dir/controller/MyController.cpp.o"
+/usr/bin/ranlib libapp-lib.a

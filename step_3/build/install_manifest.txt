@@ -1,0 +1,3 @@
+/home/zeyen/project/cppug-kl-0623/step_3/install/bin/app-exe
+/home/zeyen/project/cppug-kl-0623/step_3/install/var/run/site/index.html
+/home/zeyen/project/cppug-kl-0623/step_3/install/var/run/db/sql/001_init.sql

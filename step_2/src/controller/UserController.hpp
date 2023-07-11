@@ -1,0 +1,65 @@
+
+#pragma once
+
+#include "service/UserService.hpp"
+
+#include <oatpp/web/server/api/ApiController.hpp>
+#include <oatpp/parser/json/mapping/ObjectMapper.hpp>
+#include <oatpp/core/macro/codegen.hpp>
+
+#include OATPP_CODEGEN_BEGIN(ApiController)
+
+/**
+ * User REST controller.
+ */
+class UserController : public oatpp::web::server::api::ApiController
+{
+private:
+  UserService _userService;
+
+public:
+  UserController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
+      : oatpp::web::server::api::ApiController(objectMapper)
+  {
+  }
+
+  static std::shared_ptr<UserController> createShared(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
+  {
+    return std::make_shared<UserController>(objectMapper);
+  }
+
+  ENDPOINT("POST", "users", createUser,
+           BODY_DTO(Object<UserDto>, userDto))
+  {
+    return createDtoResponse(Status::CODE_200, _userService.createUser(userDto));
+  }
+
+  ENDPOINT("PUT", "users/{userId}", putUser,
+           PATH(Int32, userId),
+           BODY_DTO(Object<UserDto>, userDto))
+  {
+    userDto->id = userId;
+    return createDtoResponse(Status::CODE_200, _userService.updateUser(userDto));
+  }
+
+  ENDPOINT("GET", "users/{userId}", getUserById,
+           PATH(Int32, userId))
+  {
+    return createDtoResponse(Status::CODE_200, _userService.getUserById(userId));
+  }
+
+  ENDPOINT("GET", "users/offset/{offset}/limit/{limit}", getUsers,
+           PATH(UInt32, offset),
+           PATH(UInt32, limit))
+  {
+    return createDtoResponse(Status::CODE_200, _userService.getAllUsers(offset, limit));
+  }
+
+  ENDPOINT("DELETE", "users/{userId}", deleteUser,
+           PATH(Int32, userId))
+  {
+    return createDtoResponse(Status::CODE_200, _userService.deleteUserById(userId));
+  }
+};
+
+#include OATPP_CODEGEN_END(ApiController)
